@@ -12,21 +12,15 @@
 </head>
 <body>
   <header class="header">
-    <div class="heading"><a href="#" id="home" aria-label="最初のページへ"><span class="eyebrow">数学 III · 第5章</span><h1>積分法 <span>復習ノート</span></h1></a><button id="contents-button" class="quiet" aria-expanded="false" aria-controls="contents">目次 <span aria-hidden="true">☰</span></button></div>
-    <div class="toolbar" aria-label="表示の操作">
-      <label class="page-control"><span class="label">ページ</span><select id="page-select" aria-label="ページを選択"></select><span class="denominator">/ 28</span></label>
-      <form id="question-form"><label for="question-input" class="label">問題</label><input id="question-input" type="number" inputmode="numeric" min="1" max="71" placeholder="1–71" aria-label="移動する問題番号" required><button class="quiet" type="submit" aria-label="指定した問題へ移動">移動</button></form>
-      <div class="zoom-controls" aria-label="拡大率"><button id="zoom-out" class="icon" aria-label="縮小">−</button><button id="zoom-fit" class="zoom-value" aria-label="幅に合わせる">100%</button><button id="zoom-in" class="icon" aria-label="拡大">＋</button></div>
-      <button id="hide-all" class="quiet reset">すべて隠す</button>
+    <div class="header-inner">
+      <h1>積分法</h1>
+      <label class="question-control" for="question-select"><span>問題番号</span><select id="question-select" aria-label="問題番号を選択" disabled><option>読み込み中</option></select></label>
     </div>
   </header>
-  <aside id="contents" class="contents" hidden><div class="contents-head"><strong>目次</strong><button id="contents-close" class="quiet">閉じる</button></div><nav id="section-list" aria-label="積分の単元"></nav><div class="contents-note">全28ページ · 71問<br>問題番号でも移動できます。</div></aside>
   <main>
-    <div class="intro"><p>問題はそのまま。<span>タップで解答を表示。もう一度タップで隠す。</span></p><div><label class="toggle"><input id="formula-hide" type="checkbox">公式・説明も隠す</label><span id="reveal-count" role="status" aria-live="polite">解答表示 0 / 71</span></div></div>
     <div class="reader-viewport" id="reader-viewport"><div id="reader" class="reader" aria-label="積分法の授業ノート"></div></div>
     <p class="footer">1001 · 授業ノート <span>数式・文字はHTML、図はベクターで表示しています。</span></p>
     <noscript><p>解答シートを操作するにはJavaScriptを有効にしてください。</p></noscript>
   </main>
-  <div id="toast" class="toast" role="status" hidden></div>
 </body>
 </html>
