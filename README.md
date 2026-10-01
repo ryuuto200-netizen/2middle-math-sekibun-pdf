@@ -1,1 +1,20 @@
-# 2middle-math-sekibun-pdf
+# 積分法・復習ノート
+
+1001.pdf（数学III・第5章 積分法、28ページ・71問）を、元の紙面に近いHTMLに再構成した復習ページです。
+
+- 問題は最初から表示。各解答は控えめなシートをタップして表示・再非表示。
+- 全解答を隠す、公式・説明を隠す、ページ・問題番号への移動、100〜300%の拡大。
+- PDF/画像/iframe/canvasは使用せず、数式・文字をHTMLとローカルWebフォント、図をinline SVGで描画。
+- 元データでアウトライン化されていた日本語は、見た目を保つため専用Webフォントで再構成しています。この一部の日本語・数式は通常の文字としてのコピーや読み上げには対応していません。
+- 表示する解答は元資料の内容を保持し、独自の解答へ置き換えていません。
+- 外部ライブラリ・外部フォント・アクセス解析なし。
+
+公開URL: https://ryuuto200-netizen.github.io/2middle-math-sekibun-pdf/
+
+## 開発
+
+`python -m http.server 8000` で配信してください。HTMLを直接ファイルとして開く場合はfetch制限によりページを読み込めません。
+
+`scripts/build_pages.py` は元PDFからHTMLを生成する開発用スクリプトです。再生成にはPyMuPDFとfontToolsが必要です。元PDFはリポジトリに含めていません。
+
+GitHub Pages の Source を GitHub Actions に設定すると、mainへの更新で自動デプロイします。
