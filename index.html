@@ -11,15 +11,11 @@
   <script src="app.js" defer></script>
 </head>
 <body>
-  <header class="header">
-    <div class="header-inner">
-      <h1>積分法</h1>
-      <label class="question-control" for="question-select"><span>問題番号</span><select id="question-select" aria-label="問題番号を選択" disabled><option>読み込み中</option></select></label>
-    </div>
-  </header>
+  <nav class="question-navigation" aria-label="問題への移動">
+    <select id="question-select" aria-label="問題番号を選択" disabled><option>…</option></select>
+  </nav>
   <main>
     <div class="reader-viewport" id="reader-viewport"><div id="reader" class="reader" aria-label="積分法の授業ノート"></div></div>
-    <p class="footer">1001 · 授業ノート <span>数式・文字はHTML、図はベクターで表示しています。</span></p>
     <noscript><p>解答シートを操作するにはJavaScriptを有効にしてください。</p></noscript>
   </main>
 </body>

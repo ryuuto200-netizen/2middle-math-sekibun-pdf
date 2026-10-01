@@ -49,12 +49,11 @@ function resizeReader() {
   $('reader').style.setProperty('--reader-width', `${width}px`);
   $('reader').style.setProperty('--page-scale', width / WIDTH);
   $('reader').style.setProperty('--page-height', `${width / WIDTH * HEIGHT}px`);
-  document.documentElement.style.setProperty('--header-h', `${document.querySelector('.header').offsetHeight}px`);
 }
 function scrollToPage(page, y = 0) {
   const frame = $(`page-${page}`);
   if (!frame) return;
-  const top = frame.getBoundingClientRect().top + scrollY + y * frame.clientWidth / WIDTH - document.querySelector('.header').offsetHeight - 22;
+  const top = frame.getBoundingClientRect().top + scrollY + y * frame.clientWidth / WIDTH - 22;
   window.scrollTo({top: Math.max(0, top), behavior: 'instant'});
   $('reader-viewport').scrollLeft = 0;
   loadPage(page);
@@ -67,7 +66,7 @@ function goQuestion(number) {
   $('question-select').value = number;
 }
 function syncQuestion() {
-  const target = document.querySelector('.header').offsetHeight + 44;
+  const target = 44;
   const scale = $('reader').clientWidth / WIDTH;
   const tops = new Map();
   let number = lesson.problems[0].number;
@@ -97,7 +96,7 @@ async function init() {
     $('question-select').replaceChildren(...lesson.problems.map(({number}) => {
       const option = document.createElement('option');
       option.value = number;
-      option.textContent = `問題 ${number}`;
+      option.textContent = String(number);
       return option;
     }));
     $('question-select').disabled = false;
@@ -118,7 +117,6 @@ async function init() {
       requestAnimationFrame(() => { scrollPending = false; syncQuestion(); });
     }, {passive: true});
     addEventListener('resize', () => { resizeReader(); syncQuestion(); });
-    new ResizeObserver(() => document.documentElement.style.setProperty('--header-h', `${document.querySelector('.header').offsetHeight}px`)).observe(document.querySelector('.header'));
     await loadPage(1);
     const question = location.hash.match(/^#q(\d+)$/), page = location.hash.match(/^#page-(\d+)$/);
     if (question) goQuestion(Number(question[1]));
